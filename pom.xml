@@ -7,7 +7,7 @@
     <groupId>by.mark</groupId>
     <artifactId>editorconfig-wrapper-maven-plugin</artifactId>
     <packaging>maven-plugin</packaging>
-    <version>0.0.3-SNAPSHOT</version>
+    <version>0.0.5-SNAPSHOT</version>
 
     <name>Editorconfig wrapper plugin</name>
     <url>http://maven.apache.org</url>

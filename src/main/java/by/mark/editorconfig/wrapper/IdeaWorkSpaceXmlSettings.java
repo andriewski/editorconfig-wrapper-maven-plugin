@@ -1,4 +1,4 @@
-package by.mark.spotless.wrapper;
+package by.mark.editorconfig.wrapper;
 
 final class IdeaWorkSpaceXmlSettings {
 
