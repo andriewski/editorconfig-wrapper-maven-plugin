@@ -58,7 +58,7 @@ public class EditorConfigWrapperMojo extends AbstractMojo {
 
         try (InputStream libraryEditorConfigIs = libraryEditorConfigStream()) {
             Files.copy(libraryEditorConfigIs, projectEditorConfigPath, StandardCopyOption.REPLACE_EXISTING);
-            log.info("new .editorconfig file was wrote");
+            log.info("new .editorconfig file was written");
         }
     }
 
@@ -97,9 +97,9 @@ public class EditorConfigWrapperMojo extends AbstractMojo {
     }
 
     private void writeDataToXml(Path workspaceXml, List<String> xmlLines) throws IOException {
-        int i = xmlLines.size() - 1;
-        for (; i >= 0; i--) {
-            String line = xmlLines.get(i);
+        int rowIndex = xmlLines.size() - 1;
+        for (; rowIndex >= 0; rowIndex--) {
+            String line = xmlLines.get(rowIndex);
             boolean componentEnded = line.contains("</component>");
 
             if (componentEnded) {
@@ -107,11 +107,11 @@ public class EditorConfigWrapperMojo extends AbstractMojo {
             }
         }
 
-        if (i <= 0 || i == xmlLines.size() - 1) {
+        if (rowIndex <= 0 || rowIndex == xmlLines.size() - 1) {
             throw new IllegalStateException("Invalid workspace.xml in .idea folder. Invalid structure " + workspaceXml);
         }
 
-        int indexToAddData = i + 1;
+        int indexToAddData = rowIndex + 1;
 
         xmlLines.add(indexToAddData, OPTIMIZE_IMPORTS);
         xmlLines.add(indexToAddData, REFORMAT_CODE);
